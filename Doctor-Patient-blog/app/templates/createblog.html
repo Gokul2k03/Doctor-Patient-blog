@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');:root{--header-height: 2rem;--nav-width: 68px;--first-color: #24272E;--first-color-light: #AFA5D9;--white-color: #F7F6FB;--body-font: 'Asap', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,::before,::after{box-sizing: border-box}body{position: relative;margin: var(--header-height) 0 0 0;padding: 0 1rem;font-family: var(--body-font);font-size: var(--normal-font-size);transition: .5s}a{text-decoration: none}.header{width: 100%;height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: space-between;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}.header_toggle{color: var(--first-color);font-size: 1.5rem;cursor: pointer}.header_img{width: 35px;height: 35px;display: flex;justify-content: center;border-radius: 50%;overflow: hidden}.header_img img{width: 40px}.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: var(--first-color);padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}.nav_logo-name{color: var(--white-color);font-weight: 700}.nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}.nav_link:hover{color: var(--white-color)}.nav_icon{font-size: 1.25rem}.show{left: 0}.body-pd{padding-left: calc(var(--nav-width) + 1rem)}.active{color: var(--white-color)}.active::before{content: '';position: absolute;left: 0;width: 2px;height: 32px;background-color: var(--white-color)}.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
+
+      body {
+        font-family: 'Roboto Slab', serif;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background-color: #46C2CB;
+      }
+
+      .header{
+        background-color:#24272E;
+      }
+
+      .container{
+          padding-right:80px;
+      }
+
+      .h2{
+        font-family: 'Playfair Display SC', serif;
+        padding-bottom: 4%;
+      }
+      .form-outline{
+        text-align: left;
+      }
+    </style>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color: #FFFFFF;"></i></div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="{% url 'blogs' %}" class="nav_link"> <i class='bx bx-home-alt-2'></i> <span class="nav_names">Home Page</span> </a>
+              {% if request.user.is_doctor %}     
+              <div class="nav_list"> 
+                  <a href="{% url 'myblogs' %}" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">View My Blogs</span> </a> 
+                  <a href="{% url 'drafts' %}" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_names">Drafts</span> </a>
+                  <a href="{% url 'create' %}" class="nav_link active"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Create New Blog</span> </a>  
+                </div>
+              {% endif %}
+            </div> <a href="{% url 'logout' %}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Logout</span> </a>
+        </nav>
+    </div>
+
+    {% if msg %}
+    <div class="newcont mt-4 mb-0" style="width:205px;height: 100px;">   
+            <div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+              <i class="bi-exclamation-octagon-fill"></i>
+              <strong class="mx-2">Error!</strong>{{msg}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+      </div>
+    {% endif %}
+
+    <div class="container mx-3">
+        <form action="" method="post" novalidate class="shadow p-5 mx-0" enctype="multipart/form-data">
+    {% csrf_token %}
+    <section class="vh-200 gradient-custom">
+      <div class="container mt-0 mx-0 h-50">
+        <div class="row d-flex justify-content-center align-items-center h-50">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 0.5rem; width:500px;">
+              <div class="card-body p-5 text-center">
+
+                <div class="mb-md-5 pb-2">
+                  <h2 class="fw-bold mb-2 text-uppercase h2">Create Blog</h2>
+
+                  {% for fm in form %}
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label mb-2">{{fm.label}}</label> {{fm}}
+                    <small class="text-danger mt-2"> {{fm.errors|striptags}} </small>
+                  </div>
+                  {% endfor %}
+
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label mb-2">Profile Picture: </label> 
+                    <input type="file" name="image" class="form-control">
+                  </div>
+
+                  <button class="btn btn-outline-light btn-lg px-5 mt-4" type="submit">Create Blog</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% if form.non_field_errors %} 
+    {% for error in form.non_field_errors %}
+      <p class="alert alert-danger my-3">{{error}}</p>
+    {% endfor %}
+  {% endif %}
+  </form>
+    </div>
+</body>
+
+  <script src="/static/JS/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+            crossorigin="anonymous"></script>
+</html>

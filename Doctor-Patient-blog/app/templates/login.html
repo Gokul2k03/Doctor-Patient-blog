@@ -1,0 +1,108 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <title>Login Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    header {
+        background: #24272E;
+        padding: 20px;
+    }
+
+    header>h1 {
+        color: #ffffff;
+        text-align: center;
+        font-size: 35px;
+        font-family: 'Playfair Display SC', serif;
+        font-weight: bold;
+    }
+
+    h2{
+      padding-bottom: 4%;
+    }
+
+    body{
+        font-family: 'Roboto Slab', serif;
+        font-size: 15.5px;
+        background-color: #46C2CB;
+        padding-bottom: 0px;
+    }
+
+    .form-outline{
+      text-align: left;
+    }
+
+</style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Login Page</h1>
+  </header>
+
+  <div class="container mt-4 mb-0" style="width:450px;">
+    {% if messages %}
+          {% for message in messages %}
+            <p {% if message.tags %} class="alert alert-{{message.tags}} mb-4" {% endif %} > {{message}} </p>
+          {% endfor %}
+        {% endif %}
+    
+        {% if msg %}
+        <div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+          <i class="bi-exclamation-octagon-fill"></i>
+          <strong class="mx-2">Error!</strong>{{msg}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endif %}
+  </div>
+
+    <form action="" method="post" novalidate class="shadow p-5" >
+        {% csrf_token %}
+        <section class="vh-50 gradient-custom">
+          <div class="container mt-0 h-50">
+            <div class="row d-flex justify-content-center align-items-center h-50">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 0.5rem;">
+                  <div class="card-body p-5 text-center">
+        
+                    <div class="mb-md-5 pb-2">
+                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+    
+                      {% for fm in form %}
+                      <div class="form-outline form-white mb-2">
+                        <label class="form-label">{{fm.label}}</label>{{fm}}
+                      </div>
+                      {% endfor %}
+                      <button class="btn btn-outline-light btn-lg px-5 mt-3" type="submit">Login</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

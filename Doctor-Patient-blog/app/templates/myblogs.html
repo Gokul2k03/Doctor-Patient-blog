@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+      :root{--header-height: 2rem;--nav-width: 68px;--first-color: #24272E;--first-color-light: #AFA5D9;--white-color: #F7F6FB;--body-font: 'Asap', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,::before,::after{box-sizing: border-box}body{position: relative;margin: var(--header-height) 0 0 0;padding: 0 1rem;font-family: var(--body-font);font-size: var(--normal-font-size);transition: .5s}a{text-decoration: none}.header{width: 100%;height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: space-between;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}.header_toggle{color: var(--first-color);font-size: 1.5rem;cursor: pointer}.header_img{width: 35px;height: 35px;display: flex;justify-content: center;border-radius: 50%;overflow: hidden}.header_img img{width: 40px}.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: var(--first-color);padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}.nav_logo-name{color: var(--white-color);font-weight: 700}.nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}.nav_link:hover{color: var(--white-color)}.nav_icon{font-size: 1.25rem}.show{left: 0}.body-pd{padding-left: calc(var(--nav-width) + 1rem)}.active{color: var(--white-color)}.active::before{content: '';position: absolute;left: 0;width: 2px;height: 32px;background-color: var(--white-color)}.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .header{
+        background-color:#24272E;
+      }
+
+      h1{
+        font-family: 'Playfair Display SC', serif;
+      }
+
+      .headingof {
+        color: white;
+        text-align: center;
+        font-size: 35px;
+        font-weight: 500;
+        font-family: 'Roboto Slab', serif;
+      }
+
+      .btn {
+        border: none;
+        outline: none;
+        padding: 10px 25px;
+        background-color: #24272E;
+        color: white;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #FFFFFF;
+      }
+
+      .container-newone{
+        align-content: center;
+        text-align: center;
+        padding-right: 0px;
+        padding-left: 120px;
+      }
+
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: 'Roboto Slab', serif;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background-color: #46C2CB;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1200px;
+        margin-block: 2rem;
+        gap: 2rem;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        width: clamp(20rem, calc(20rem + 2vw), 22rem);
+        overflow: hidden;
+        box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+        border-radius: 0.5em;
+        background: #ECE9E6;
+        background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+        margin-top:20px ;
+        margin-bottom:40px ;
+      }
+
+
+
+      .card__body {
+          font-size: 13px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+
+
+      .tag {
+        align-self: flex-start;
+        padding: .25em .75em;
+        border-radius: 0.5em;
+        font-size: .75rem;
+      }
+
+      .tag + .tag {
+        margin-left: .5em;
+      }
+
+      .tag-blue {
+        background-color: #46C2CB;
+      }
+
+      .tag-brown {
+        background: #D1913C;
+      background: linear-gradient(to bottom, #FFD194, #D1913C);
+        color: #fafafa;
+      }
+
+      .tag-red {
+        background: #cb2d3e;
+      background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+        color: #fafafa;
+      }
+
+      .card__body h4 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+      }
+
+      .card__footer {
+        display: flex;
+        padding: 1rem;
+        margin-top: auto;
+      }
+
+      .user {
+        display: flex;
+        gap: .5rem;
+      }
+
+      .user__image {
+        border-radius: 50%;
+      }
+
+      .user__info > small {
+        color: #666;
+      }
+
+      .text {
+        display: block;
+        width: 300px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+
+    </style>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color: #FFFFFF;"></i></div>
+    </header>
+    
+    <h1 class="heading mt-3" style="color:#24272E;font-weight:550;">My Current Blogs</h1>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="{% url 'blogs' %}" class="nav_link"> <i class='bx bx-home-alt-2'></i> <span class="nav_names">All Blogs</span> </a>
+              {% if request.user.is_doctor %}    
+              <div class="nav_list"> 
+                  <a href="{% url 'myblogs' %}" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">View My Blogs</span> </a> 
+                  <a href="{% url 'drafts' %}" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_names">Drafts</span> </a>
+                  <a href="{% url 'create' %}" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Create New Blog</span> </a>  
+                </div>
+              {% endif %}
+            </div> <a href="{% url 'logout' %}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Logout</span> </a>
+        </nav>
+    </div>
+
+    <div class="container mt-4 mb-0" style="width:700px;">
+        {% if messages %}
+              {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-4" {% endif %} align="center"> {{message}} <button type="button" class="btn-close" data-bs-dismiss="alert"></button></p>
+              {% endfor %}
+            {% endif %}
+      </div>
+
+  <div class="container">
+      {% for i in data %}
+    <div class="card">
+      <div class="card__header">
+        <img src="{{i.blog_image.url}}" alt="card__image" class="card__image" width="600" height="200">
+      </div>
+      <div class="card__body">
+        <span class="tag tag-blue">{{i.blog_category}}</span>
+        <h4>{{i.title}}</h4>
+        <span class="text">{{i.summary}}</span>
+        <span class="text">{{i.content}}</span>
+      </div>
+      <div class="card__footer">
+        <div class="user">
+          <div class="user__info">
+            <h6><i class='bx bxl-blogger'></i> {{i.user}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+  <script src="/static/JS/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+            crossorigin="anonymous"></script>
+</html>
