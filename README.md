@@ -1,2 +1,2 @@
 # Doctor-Patient-blog
-Tools Used: Django, Bootstrap, MySql
+Tools Used: Django, Bootstrap, JavaScript, MySql
